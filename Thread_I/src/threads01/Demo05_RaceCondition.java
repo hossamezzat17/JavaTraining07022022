@@ -37,11 +37,31 @@ package threads01;
  * -Antwort : Nein - Verletzte Regel 1. count++ -> count = count + 1;
  * 
  */
+/*
+ *  					count = 0
+ * 
+ *		Thread 1					Thread 2
+ * 
+ *		count++;					count++; 
+ * 
+ * 		Ausgeschrieben:
+ * 
+ * 		count = count + 1			count = count + 1
+ * 
+ * 		Wiederum ausgeschrieben:
+ * 
+ * 		cpu1 = count (0)			cpu2 = count (0)
+ * 		cpu1 + 1	 (1)			    cpu2 + 1	 (1) 
+ *      count = cpu1 (1)
+ *      							count = cpu2 (1)
+ *      
+ *      				count = 1
+ */
 public class Demo05_RaceCondition {
 
 	static final int ITERATIONS = 1_000_000;
 
-	static int count = 0;
+	volatile static int count = 0;
 
 	public static void main(String[] args) {
 		Runnable target = new Runnable() {
