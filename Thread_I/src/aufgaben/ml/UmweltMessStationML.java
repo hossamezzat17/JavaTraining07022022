@@ -39,7 +39,46 @@ public class UmweltMessStationML {
 
 		generateRandom();
 		analyzeValues();
-		//limitAlert();
+		limitMessage();
+	}
+
+	/**
+	 * Im dritten Thread werden Mitteilungen ausgegeben, falls die aktuelle
+	 * Feinstaubkonzentration einen Grenzwert überschreitet (>50) (Erhöhte
+	 * Belastung) oder unterschreitet (<8)(Sehr saubere Luft). Auch die Kontrollen
+	 * werden nur periodisch (1 Mal in 2 Sek) durchgeführt
+	 */
+	private static void limitMessage() {
+		Runnable target = new Runnable() {
+
+			@Override
+			public void run() {
+				while (true) {
+					try {
+						Thread.sleep(2000);
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+					/**
+					 * aktuelle Feinstaubkonzentration
+					 */
+					int value = values.get(values.size() - 1);
+					
+					/**
+					 * Analysieren
+					 */
+					if (value > 50) {
+						System.out.println("---------------- Erhöhte Belastung");
+					} else if (value < 8) {
+						System.out.println("---------------- Sehr saubere Luft");
+					}
+				}
+			}
+		};
+		
+		Thread thread = new Thread(target);
+		thread.start();
+
 	}
 
 	/**
