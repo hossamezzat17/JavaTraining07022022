@@ -30,29 +30,58 @@ import java.util.Random;
 public class UmweltMessStationML {
 
 	private static Random rand;
-	
+
 	private static List<Integer> values;
-	
+
 	public static void main(String[] args) {
 		rand = new Random();
 		values = new ArrayList<>();
-		
-		Runnable targetMessungen = new Runnable() {
+
+		generateRandom();
+		analyzeValues();
+		//limitAlert();
+	}
+
+	/**
+	 * In einem anderen Thread werden die drei letzten vorhandenen Messungen
+	 * analysiert (1 mal pro Sekunde). Falls in diesen drei Messungen der stätige
+	 * Abfall erkannt wird, wird die Tendenz auf der Konsole visualisiert. Dasselbe
+	 * zur stätigen Steigung.
+	 */
+	private static void analyzeValues() {
+
+		Runnable target = new Runnable() {
+
 			@Override
 			public void run() {
-				generateRandom();
+				while (true) {
+					try {
+						Thread.sleep(1000);
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+					/**
+					 * drei letzten vorhandenen Messungen
+					 */
+					int firstLast = values.get(values.size() - 1);
+					int secondLast = values.get(values.size() - 2);
+					int thirdLast = values.get(values.size() - 3);
+
+					/**
+					 * Messwerte Analysieren
+					 */
+					if (firstLast < secondLast && secondLast < thirdLast) {
+						System.out.println("Tendenz fallend");
+					} else if (firstLast > secondLast && secondLast > thirdLast) {
+						System.out.println("Tendenz steigend");
+					}
+				}
+
 			}
 		};
-//		Referenz zum Runnable Object mitgeben
-		Thread t1 = new Thread(targetMessungen,"Messungen"); 
-		
-//		Lambda erste Ausprägung
-//		Thread t1 = new Thread(()->generateRandom(),"Messungen"); 
-		
-//		Lambda als Methodenreferenzen
-//		Thread t1 = new Thread(UmweltMessStationML::generateRandom,"Messungen");
-		
-		t1.start();
+		Thread thread = new Thread(target);
+		thread.start();
+
 	}
 
 	/**
@@ -63,26 +92,35 @@ public class UmweltMessStationML {
 	 * auf 15 Mikrogramm gesetzt werden.
 	 */
 	private static void generateRandom() {
-		int initial = 15;
-		while(true) {
-			try {
-				Thread.sleep(100);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
+
+		Runnable target = new Runnable() {
+			@Override
+			public void run() {
+				int initial = 15;
+				while (true) {
+					try {
+						Thread.sleep(100);
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+					initial = getMeasurement(initial);
+					/**
+					 * Die werte direkt in die Liste eintragen.
+					 */
+					values.add(initial);
+
+					System.out.println("Messung : " + initial);
+				}
 			}
-			initial = getMeasurement(initial);
-			/**
-			 * Die werte direkt in die Liste eintragen.
-			 */
-			values.add(initial);
-			
-			System.out.println("Messung : " + initial);
-		}
+		};
+
+		Thread thread = new Thread(target);
+		thread.start();
 	}
 
 	private static int getMeasurement(int initial) {
-		int random = rand.nextInt(9);//0 - 8
-		if(rand.nextBoolean()) {
+		int random = rand.nextInt(9);// 0 - 8
+		if (rand.nextBoolean()) {
 			// Plus
 			initial += random;
 		} else {
@@ -90,19 +128,9 @@ public class UmweltMessStationML {
 			initial -= random;
 		}
 		return initial < 0 ? 0 : initial;
-		
-		//int random = initial + (rand.nextInt(17) - 8);//0-16 minus 8 erg -> -8 bis +8
-		//return random < 0 ? 0 : random;//verhindern von Negativen Zahlen
+
+		// int random = initial + (rand.nextInt(17) - 8);//0-16 minus 8 erg -> -8 bis +8
+		// return random < 0 ? 0 : random;//verhindern von Negativen Zahlen
 	}
 
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 }
