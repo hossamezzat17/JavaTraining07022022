@@ -15,6 +15,7 @@ public class Demo06_Synchronisieren {
 			@Override
 			public synchronized void run() {
 				int i = 0;
+
 				for (; i < ITERATIONS; i++) {
 					/**
 					 * Synchronisieren mit einem Statischen Schlüssel.
