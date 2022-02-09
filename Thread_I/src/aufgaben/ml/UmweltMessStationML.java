@@ -1,8 +1,13 @@
 package aufgaben.ml;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Random;
+
+import javax.swing.Timer;
 
 /**
  * Messung von Feinstaubwerten:
@@ -37,9 +42,26 @@ public class UmweltMessStationML {
 		rand = new Random();
 		values = new ArrayList<>();
 
+		timedStop(15);
 		generateRandom();
 		analyzeValues();
 		limitMessage();
+	}
+
+	/**
+	 * Zeitgesteuertes Beenden der Applikation
+	 * @param time in Seconds
+	 */
+	private static void timedStop(int time) {
+		ActionListener al = new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				System.out.println("Auf Wiedersehen");
+				System.exit(0);
+			}
+		};
+		Timer timer = new Timer(time*1000, al);
+		timer.start();
 	}
 
 	/**
