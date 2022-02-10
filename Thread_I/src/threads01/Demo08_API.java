@@ -29,6 +29,38 @@ public class Demo08_API {
 		 */
 		tFred.setName("Wilma");
 		System.out.println(tFred);
+		System.out.println(tFred.getName());
+		
+		/**
+		 * getID();
+		 */
+		long id = tBarney.getId();
+		System.out.println("tBarney.getId() : " + tBarney.getId());
+		System.out.println("tFred.getId() : " + tFred.getId());
+		System.out.println("Thread.currentThread().getId() : " + Thread.currentThread().getId());
+		
+		/**
+		 * getPriority()
+		 * 
+		 * setPriority()
+		 */
+		int priority = tFred.getPriority();
+		System.out.println("tFred.getPriority() : " + priority);//NORM_PRIORITY = 5
+		System.out.println("Thread.MAX_PRIORITY : " + Thread.MAX_PRIORITY);
+		System.out.println("Thread.MIN_PRIORITY : " + Thread.MIN_PRIORITY);
+		System.out.println("Thread.NORM_PRIORITY : " + Thread.NORM_PRIORITY);
+		
+		/**
+		 * Thread per Standard ist User-Thread gestartet.
+		 * 
+		 * Ein Thread kann zu eonen Daemon-Thread - System-Thread umgestellt werden.
+		 * 
+		 * Die Applikation/Das Programm läuft solange es Aktive User-Threads gibt.
+		 * 
+		 * Alle zu diesem Zeitpunkt laufenden Daemon-Threads werden beendet/unterbrochen.
+		 */
+		tFred.isDaemon();
+		tFred.setDaemon(true);
 	}
 
 	/**
