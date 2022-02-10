@@ -1,10 +1,13 @@
-package gui.frome;
+package gui.frame;
 
+import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.GridLayout;
 import java.awt.Point;
 import java.awt.Rectangle;
 
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 public class MainFrame extends JFrame {
 
@@ -43,6 +46,24 @@ public class MainFrame extends JFrame {
 //		this.setBounds(rectAbsolute);
 		this.setBounds(200, 125,1100,540);
 
+		
+		this.setTitle("GUI example");
+		
+		JPanel mainPanel = new JPanel();
+		//new GridLayout(row, columns, hgap, vgap)
+		mainPanel.setLayout(new GridLayout(1, 0, 12, 12) );
+		mainPanel.setBackground(Color.GREEN);
+		this.add(mainPanel);
+		
+		
+		JPanel innerPanel01 = new JPanel();
+		innerPanel01.setBackground(Color.BLUE);
+		mainPanel.add(innerPanel01);
+		
+		JPanel innerPanel02 = new JPanel();
+		innerPanel02.setBackground(Color.MAGENTA);
+		mainPanel.add(innerPanel02);
+		
 		/**
 		 * Wird benötigt um den Frame anzeigen zu lassen
 		 */
