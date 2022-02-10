@@ -62,13 +62,13 @@ public class MainFrame extends JFrame {
 		
 		JPanel innerPanel01 = new JPanel();
 		innerPanel01.setBackground(Color.BLUE);
-		//this.getRootPane().add(innerPanel01);
-		mainPanel.add(innerPanel01);
+		this.getContentPane().add(innerPanel01);
+		//mainPanel.add(innerPanel01);
 		
 		JPanel innerPanel02 = new JPanel();
 		innerPanel02.setBackground(Color.MAGENTA);
-		//this.getRootPane().add(innerPanel02);
-		mainPanel.add(innerPanel02);
+		this.getContentPane().add(innerPanel02);
+		//mainPanel.add(innerPanel02);
 		
 		/**
 		 * Wird benötigt um den Frame anzeigen zu lassen
