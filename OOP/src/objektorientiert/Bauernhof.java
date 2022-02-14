@@ -9,6 +9,7 @@ public class Bauernhof {
 		/**
 		 * Programmieren mit Objekten
 		 */
+		System.out.println("\n\n--------------------Programmieren mit Objekten");
 		System.out.println(s01);
 		System.out.println(s01.getName() + " futtert");
 		s01.setGewicht(s01.getGewicht()+25);
@@ -17,13 +18,15 @@ public class Bauernhof {
 		/**
 		 * Objektorientiertes Programmieren
 		 */
+		System.out.println("\n\n--------------------Objektorientiertes Programmieren");
 		Kartoffel k01 = new Kartoffel("Linda", 42);
 		Moehre m01 = new Moehre("BetaKarotinHelfer", 15);
 		System.out.println(s02);
 		System.out.println(k01);
 		System.out.println(m01);
-		s02.futtern(k01);
-		s02.futtern(m01);
+		s02.futtern(k01,4);
+		s02.futtern(m01,2);
+		s02.futtern(new Zuckerruebe(), 4);
 		System.out.println(s02);
 		System.out.println(k01);
 		System.out.println(m01);
@@ -31,10 +34,11 @@ public class Bauernhof {
 		/**
 		 * Vererbung
 		 */
+		System.out.println("\n\n--------------------Vererbung");
 		Ferkel f01 = new Ferkel("Pinki", 1, 23, "Nussbraun");
 		System.out.println(f01);
-		f01.futtern(new Kartoffel());
-		f01.futtern(new Moehre());
+		f01.futtern(new Kartoffel(),4);
+		f01.futtern(new Moehre(),4);
 		System.out.println(f01);
 		f01.rumTollen();
 		System.out.println(f01);
