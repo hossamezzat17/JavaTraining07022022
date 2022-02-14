@@ -48,19 +48,31 @@ public class Schwein {
 		return this.getClass().getSimpleName() + " : " + this.getName() + " : " + this.getAlter() + " : "
 				+ this.getGewicht();
 	}
-	
+
 	public void futtern(int menge) {
 		System.out.println(this.getName() + " futtert");
 		this.setGewicht(this.getGewicht() + menge);
 	}
 	
-	
-	public void futtern(Gemuese gemuese,int menge) {
-		System.out.println(this.getName() + " futtert " + gemuese.getName());
-		this.setGewicht(this.getGewicht()+menge);
-		gemuese.wirdgefressen(menge);
+	public void futtern(IFressbar iFressbar, int menge) {
+		System.out.println(this.getName() + " futtert " + iFressbar.getClass().getSimpleName());
+		this.setGewicht(this.getGewicht() + menge);
+		iFressbar.wirdgefressen(menge);
 	}
 	
+
+//	public void futtern(AGemuese gemuese, int menge) {
+//		System.out.println(this.getName() + " futtert " + gemuese.getName());
+//		this.setGewicht(this.getGewicht() + menge);
+//		gemuese.wirdgefressen(menge);
+//	}
+
+//	public void futtern(AObst obst, int menge) {
+//		System.out.println(this.getName() + " futtert " + obst.getName());
+//		this.setGewicht(this.getGewicht() + menge);
+//		obst.wirdgefressen(menge);
+//	}
+
 //	public void futtern(Kartoffel kartoffel) {
 //		System.out.println(this.getName() + " futtert " + kartoffel.getName());
 //		this.setGewicht(this.getGewicht() + kartoffel.getKnollen());

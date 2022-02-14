@@ -1,6 +1,6 @@
 package objektorientiert;
 
-public abstract class Gemuese {
+public abstract class AObst extends APflanze {
 
 	private String name;
 	private int menge;
@@ -21,11 +21,11 @@ public abstract class Gemuese {
 		this.menge = menge;
 	}
 
-	public Gemuese() {
-		this("A Gemuese",0);
+	public AObst() {
+		this("AObst",0);
 	}
 
-	public Gemuese(String name,int menge) {
+	public AObst(String name,int menge) {
 		this.setName(name);
 		this.setMenge(menge);
 	}
@@ -40,8 +40,13 @@ public abstract class Gemuese {
 
 	@Override
 	public String toString() {
-		return this.getClass().getSimpleName() +  " [getName()=" + getName() + ", getMenge()=" + getMenge() + "]";
+		return this.getClass().getSimpleName() + " [getName()=" + getName() + ", getMenge()=" + getMenge() + "]";
 	}
-	
-	
+
+	@Override
+	public void wachsen() {
+		this.setMenge(this.getMenge() + 1);
+
+	}
+
 }

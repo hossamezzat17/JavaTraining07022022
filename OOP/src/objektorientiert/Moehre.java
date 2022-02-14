@@ -1,6 +1,6 @@
 package objektorientiert;
 
-public class Moehre extends Gemuese{
+public class Moehre extends AGemuese{
 
 	public Moehre() {
 		this("Leckerschmeck",18);
@@ -10,5 +10,5 @@ public class Moehre extends Gemuese{
 		super(name,laenge);
 	}
 
-
+	
 }

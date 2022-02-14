@@ -1,6 +1,6 @@
 package objektorientiert;
 
-public class Kartoffel extends Gemuese {
+public class Kartoffel extends AGemuese {
 
 	public Kartoffel() {
 		this("Sonja", 25);
@@ -10,5 +10,8 @@ public class Kartoffel extends Gemuese {
 		super(name,knollen);
 
 	}
+	
+	
+	public void diesKannNurKartoffel() {}
 
 }
