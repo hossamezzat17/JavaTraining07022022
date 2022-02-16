@@ -44,6 +44,14 @@ public class Car {
 	Car() {
 
 	}
+	
+	public Car(CarBody carBody, Color color, Motor motor, Tires tires) {
+		super();
+		this.carBody = carBody;
+		this.color = color;
+		this.motor = motor;
+		this.tires = tires;
+	}
 
 	/**
 	 * Die Werte das Carbuilder in das Car übertragen
