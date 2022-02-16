@@ -1,0 +1,10 @@
+J2EE Vorbereitung
+
+JBoss Tools for Eclipse
+https://download.jboss.org/jbosstools/static/photon/stable/updates/core/jbosstools-4.21.3.Final-updatesite-core.zip
+
+Open Liberty Server
+https://public.dhe.ibm.com/ibmdl/export/pub/software/openliberty/runtime/release/22.0.0.2/openliberty-22.0.0.2.zip
+
+Open Liberty Developer Tools for Eclipse
+https://public.dhe.ibm.com/ibmdl/export/pub/software/openliberty/tools/release/2021-09-16_2026/openlibertytools-21.0.0.9.zip
