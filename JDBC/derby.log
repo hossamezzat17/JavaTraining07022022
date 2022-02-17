@@ -1,0 +1,13 @@
+----------------------------------------------------------------
+Thu Feb 17 12:48:30 CET 2022:
+Booten von Derby-Version The Apache Software Foundation - Apache Derby - 10.15.2.0 - (1873585): Instanz a816c00e-017f-0783-26fc-00000f78d358
+für Datenbankverzeichnis memory:C:\Java\git\doz\JavaTraining07022022\JDBC\derby_db_inmemory mit Class Loader jdk.internal.loader.ClassLoaders$AppClassLoader@73d16e93
+Geladen aus file:/C:/Java/git/doz/JavaTraining07022022/JDBC/lib/derby.jar
+java.vendor=Eclipse Adoptium
+java.runtime.version=17.0.2+8
+user.dir=C:\Java\git\doz\JavaTraining07022022\JDBC
+os.name=Windows 11
+os.arch=amd64
+os.version=10.0
+derby.system.home=null
+Datenbank-Class Loader wurde gestartet - derby.database.classpath=''
