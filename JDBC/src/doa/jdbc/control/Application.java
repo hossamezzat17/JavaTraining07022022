@@ -9,6 +9,9 @@ public class Application {
 	public static void main(String[] args) {
 //		customerDAO = new DerbyCustomerDAOImpl();
 //		customerDAO = new MapCustomerDAOImpl();
+		/**
+		 * Aufgabe zu Montag, bitte die nachfolgenden Klassen fertig schreiben.
+		 */
 		customerDAO = new ArrayListCustomerDAOImpl();
 		customerDAO = new TreeSetCustomerDAOImpl();
 		
