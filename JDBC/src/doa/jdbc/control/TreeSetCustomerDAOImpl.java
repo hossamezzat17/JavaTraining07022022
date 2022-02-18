@@ -1,17 +1,17 @@
 package doa.jdbc.control;
 
 import java.util.List;
+import java.util.Set;
 
 import doa.jdbc.model.Customer;
 
-public class ArrayListCustomerDAOImpl implements CustomerDAO {
+public class TreeSetCustomerDAOImpl implements CustomerDAO {
 
-	private List<Customer> listOfCustomer;
+	private Set<Customer> setOfCustomer;
 	
 	@Override
 	public void save(Customer customer) {
 		throw new UnsupportedOperationException("not implemented yet");
-
 	}
 
 	@Override

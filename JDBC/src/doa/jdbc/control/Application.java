@@ -10,6 +10,7 @@ public class Application {
 //		customerDAO = new DerbyCustomerDAOImpl();
 //		customerDAO = new MapCustomerDAOImpl();
 		customerDAO = new ArrayListCustomerDAOImpl();
+		customerDAO = new TreeSetCustomerDAOImpl();
 		
 		Customer c01 = new Customer("Max","Mustermann",1975);
 		
