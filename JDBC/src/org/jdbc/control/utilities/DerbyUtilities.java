@@ -2,6 +2,8 @@ package org.jdbc.control.utilities;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -23,6 +25,26 @@ public class DerbyUtilities {
 			System.out.println("Test " + tableName + " erstellt");
 		}
 
+	}
+	
+	public static void showResultSet(ResultSet result) throws SQLException{
+		/**
+		 * Metadaten des Resultset abfragen.
+		 */
+		ResultSetMetaData rsmd = result.getMetaData();
+		for(int i=1;i<=rsmd.getColumnCount();i++) {
+			System.out.printf("%15s |",rsmd.getColumnLabel(i));
+		}
+		System.out.println();
+		/**
+		 * Lesen der Tupel/Datensatz aus der Tabelle
+		 */
+		while(result.next()) {
+			for(int i=1;i<=rsmd.getColumnCount();i++) {
+				System.out.printf("%15s |", result.getString(i));	
+			}
+			System.out.println();
+		}
 	}
 
 }
