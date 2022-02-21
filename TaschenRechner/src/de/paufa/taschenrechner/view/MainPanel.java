@@ -22,8 +22,19 @@ public class MainPanel extends JPanel{
 		 * 
 		 * % CE C / 7 8 9 * 4 5 6 - 1 2 3 + +/- 0 , =
 		 */
-		String text = "% CE C / 7 8 9 * 4 5 6 - 1 2 3 + +/- 0 , =";
-		JPanel buttonsPanel = new ButtonPanel(text);
+//		String text = "% CE C / 7 8 9 * 4 5 6 - 1 2 3 + +/- 0 , =";
+//		JPanel buttonsPanel = new ButtonPanel(text);
+
+		/**
+		 * ButtonPanel mit Builder Pattern
+		 */
+		ButtonPanel.Builder builder = new ButtonPanel.Builder();
+		//builder.withGrid(0, 5);
+		builder.withButton("a","b","c","d","e");
+		builder.withButton("f","g","h","i","j");
+		builder.withButton("k","l","m","n","o");
+		builder.withButton("p","q","r","s","t","u");
+		JPanel buttonsPanel = builder.build();
 
 		/**
 		 * Erstellen der Buttons - ENDE
