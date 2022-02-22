@@ -31,7 +31,7 @@ import io.data.Teilnehmer;
  *           - Die Klasse muss 'Serializable' implementieren
  * 
  *           - Alle Attribute müssen entweder primitiv sein oder auch
- *           Serializable oder transient
+ *           Serializable bzw. Transient
  * 
  *           - Attribute aus der Nicht-Serializable Basisklasse werden beim
  *           Serialisieren übersprungen
