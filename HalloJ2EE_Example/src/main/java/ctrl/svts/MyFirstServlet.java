@@ -10,26 +10,30 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import data.Zahnrad;
+
 /**
  * Servlet implementation class MyFirstServlet
  */
 @WebServlet({ "/MyFirstServlet", "/index.html" })
 public class MyFirstServlet extends HttpServlet {
-	
+
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public MyFirstServlet() {
-        super();
-    }
 
 	/**
-	 * @see HttpServlet#service(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		if(request.getMethod().equalsIgnoreCase("get")) {
+	public MyFirstServlet() {
+		super();
+	}
+
+	/**
+	 * @see HttpServlet#service(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void service(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		if (request.getMethod().equalsIgnoreCase("get")) {
 			doGet(request, response);
 			response.getWriter().append("Dies war ein GET Request");
 		} else {
@@ -38,16 +42,17 @@ public class MyFirstServlet extends HttpServlet {
 	}
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 //		response.getWriter().append("Served at: ").append(request.getContextPath());
-		
+
 		String queryString = request.getQueryString();
-		
-		
+
 		PrintWriter out = response.getWriter();
-		
+
 		out.println("<html>");
 		out.println("<head>");
 		out.println("</head>");
@@ -62,21 +67,28 @@ public class MyFirstServlet extends HttpServlet {
 		out.println(queryString);
 		out.println("</h3>");
 		Enumeration<String> parameterNames = request.getParameterNames();
-		while(parameterNames.hasMoreElements()) {
+		while (parameterNames.hasMoreElements()) {
 			String parameter = parameterNames.nextElement();
-			
+
 			out.println("<h2>" + parameter + " : " + request.getParameter(parameter) + "</h2>");
-			
+			if(parameter.equalsIgnoreCase("zaehne")) {
+				Zahnrad z01 = new Zahnrad(Integer.parseInt(request.getParameter(parameter)));
+				out.println("<div>" + z01 + "</div>");
+			}
+
 		}
+
 		out.println("</body>");
 		out.println("</html>");
-		
+
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		doGet(request, response);
 	}
 
