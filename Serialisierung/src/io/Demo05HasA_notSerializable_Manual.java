@@ -47,6 +47,9 @@ public class Demo05HasA_notSerializable_Manual {
 		private void writeObject(ObjectOutputStream oos) throws IOException {
 			System.out.println("Computer writeObject");
 			oos.defaultWriteObject();// Standard Serialisierung soll durchgeführt werden
+			/**
+			 * Manuelles Schreiben
+			 */
 			oos.writeUTF(this.cpu.name);// Zusätzliche Serialisierung soll durchgeführt werden
 			oos.writeLong(this.cpu.hz);// Zusätzliche Serialisierung soll durchgeführt werden
 		}

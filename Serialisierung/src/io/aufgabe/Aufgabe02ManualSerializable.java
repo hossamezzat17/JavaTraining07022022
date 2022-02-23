@@ -20,7 +20,7 @@ public class Aufgabe02ManualSerializable {
 	 * werden und soll auch sonst unverändert bleiben.
 	 */
 	static class Zahnrad {
-		int zaehne;
+		int zaehne;//0
 
 		@Override
 		public String toString() {
@@ -38,6 +38,18 @@ public class Aufgabe02ManualSerializable {
 		public Zahnrad mittel;
 		public Zahnrad gross;
 
+		public Getriebe() {
+			this(3,7,14);
+		}
+		
+		public Getriebe(int klein,int mittel,int gross) {
+			this.klein = new Zahnrad();
+			this.mittel = new Zahnrad();
+			this.gross = new Zahnrad();
+			this.klein.zaehne = klein;
+			this.mittel.zaehne = mittel;
+			this.gross.zaehne = gross;
+		}
 	}
 
 	public static void main(String[] args) {

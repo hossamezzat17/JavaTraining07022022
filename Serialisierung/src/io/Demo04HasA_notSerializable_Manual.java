@@ -33,8 +33,8 @@ public class Demo04HasA_notSerializable_Manual {
 	 *
 	 */
 	static class Computer implements Serializable {
-		public String model;
-		public transient CPU cpu;
+		public String model;//null
+		public transient CPU cpu;//null
 		
 		public Computer() {
 		
@@ -72,7 +72,6 @@ public class Demo04HasA_notSerializable_Manual {
 		CPU cpu01 = new CPU();
 		cpu01.name = ois.readUTF();
 		cpu01.hz = ois.readLong();
-		System.out.println(ois.readUTF());
 		comp.cpu = cpu01;
 		
 		ois.close();
@@ -91,7 +90,6 @@ public class Demo04HasA_notSerializable_Manual {
 		 */
 		oos.writeUTF(comp.cpu.name);
 		oos.writeLong(comp.cpu.hz);
-		oos.writeUTF("Hallo Welt wie lernen Java IO");
 		oos.close();
 		System.out.println("Computer wurde Serialisiert");
 	}
