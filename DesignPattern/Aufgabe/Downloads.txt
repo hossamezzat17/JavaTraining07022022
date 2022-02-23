@@ -3,6 +3,9 @@ J2EE Vorbereitung
 JBoss Tools for Eclipse
 https://download.jboss.org/jbosstools/static/photon/stable/updates/core/jbosstools-4.21.3.Final-updatesite-core.zip
 
+WildFly Server
+https://github.com/wildfly/wildfly/releases/download/26.0.1.Final/wildfly-26.0.1.Final.zip
+
 Open Liberty Server
 https://public.dhe.ibm.com/ibmdl/export/pub/software/openliberty/runtime/release/22.0.0.2/openliberty-22.0.0.2.zip
 
